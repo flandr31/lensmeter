@@ -15,7 +15,19 @@ import {
 } from "lucide-react";
 
 // Custom Infinite Spring Slider for Wheels
-const SpringSlider = ({ value, onChange, label, sensitivity = 40 }) => {
+type SpringSliderProps = {
+  value: number;
+  onChange: (newValue: number) => void;
+  label: string;
+  sensitivity?: number;
+};
+
+const SpringSlider = ({
+  value,
+  onChange,
+  label,
+  sensitivity = 40,
+}: SpringSliderProps) => {
   const trackRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState(0);
